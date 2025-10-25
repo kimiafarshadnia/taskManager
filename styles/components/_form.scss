@@ -1,0 +1,17 @@
+.add-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.btn-small {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}

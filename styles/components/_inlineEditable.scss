@@ -1,0 +1,44 @@
+.inline-editable-text,
+.inline-editable-input {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: #222;
+  display: inline-block;
+  width: fit-content;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  padding: 5px 0;
+}
+
+.inline-editable-text {
+  cursor: text;
+  word-break: break-word;
+}
+
+.inline-editable-input {
+  border: none;
+  outline: none;
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .inline-editable-text,
+  .inline-editable-input {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .inline-editable-text,
+  .inline-editable-input {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inline-editable-text,
+  .inline-editable-input {
+    font-size: 1.5rem;
+  }
+}

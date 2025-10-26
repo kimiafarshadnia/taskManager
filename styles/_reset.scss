@@ -60,8 +60,11 @@ a {
 }
 
 
-.input{
+input{
   width: fit-content;
   padding: 5px;
-  color: black;
+  color: black !important;
+  border: none;
+  border-radius: 5px;
+  outline: none;
 }

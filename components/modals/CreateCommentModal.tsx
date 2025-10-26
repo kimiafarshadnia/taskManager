@@ -45,9 +45,6 @@ export default function CreateCommentModal({
         />
 
         <div className="modal-actions">
-          <button className="btn cancel" onClick={onClose}>
-            Cancel
-          </button>
           <button
             className="btn add"
             onClick={() => {
@@ -58,6 +55,10 @@ export default function CreateCommentModal({
             }}
           >
             Add Comment
+          </button>
+
+           <button className="btn cancel" onClick={onClose}>
+            Cancel
           </button>
         </div>
       </div>

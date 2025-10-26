@@ -20,17 +20,42 @@ const saveToLocalStorage = (board: Board) => {
 };
 
 const demoBoard: Board = {
-  id: "",
-  title: "",
-  lists: [],
+  id: "demo",
+  title: "My First Board",
+  lists: [
+    {
+      id: uuid(),
+      title: "To Do",
+      createdAt: new Date().toISOString(),
+      cards: [
+        {
+          id: uuid(),
+          title: "Add your first task!",
+          description: "Click the + icon to add a new card to this list.",
+          comments: [
+            {
+              id: uuid(),
+              text: "comment 1",
+              createdAt: new Date().toISOString(),
+            },
+          ],
+          createdAt: new Date().toISOString(),
+        },
+      ],
+    },
+  ],
+  updatedAt: new Date().toISOString(),
 };
 
-const initialState: Board = loadFromLocalStorage() ?? demoBoard;
+const initialState: Board = demoBoard; // no localStorage here
 
 const boardSlice = createSlice({
   name: "board",
   initialState,
   reducers: {
+    setBoard(state, action: PayloadAction<Board>) {
+      return action.payload;
+    },
     setBoardTitle(state, action: PayloadAction<string>) {
       state.title = action.payload;
       state.updatedAt = new Date().toISOString();
@@ -137,6 +162,7 @@ const boardSlice = createSlice({
 });
 
 export const {
+  setBoard,
   setBoardTitle,
   addList,
   updateListTitle,

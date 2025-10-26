@@ -14,19 +14,33 @@ export default function InlineEditable({
   const [text, setText] = useState(value);
   const ref = useRef<HTMLInputElement>(null);
 
-  useEffect(() => { if (editing) ref.current?.focus(); }, [editing]);
+  useEffect(() => {
+    if (editing) ref.current?.focus();
+  }, [editing]);
 
   return editing ? (
     <input
       ref={ref}
       value={text}
       onChange={(e) => setText(e.target.value)}
-      onBlur={() => { setEditing(false); onSave(text); }}
-      onKeyDown={(e) => { if (e.key === "Enter") { setEditing(false); onSave(text); } }}
-      className={className}
+      onBlur={() => {
+        setEditing(false);
+        onSave(text);
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          setEditing(false);
+          onSave(text);
+        }
+      }}
+      className={`inline-editable-input ${className}`}
+      size={Math.max(text.length, 1)}
     />
   ) : (
-    <div onClick={() => setEditing(true)} className={className}>
+    <div
+      onClick={() => setEditing(true)}
+      className={`inline-editable-text ${className}`}
+    >
       {value}
     </div>
   );
